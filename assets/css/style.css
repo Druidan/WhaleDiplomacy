@@ -1,0 +1,32 @@
+/* */
+/* Universal CSS */
+
+.container-fluid {
+    padding: 0;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-12 {
+    padding: 0;
+}
+
+.buryIt {
+    display: none !important;
+}
+
+/* Navbar CSS */
+
+.navbar {
+    padding: 0rem 1.5rem;
+}
+
+.navDiv {
+    justify-content: flex-end !important;
+    align-content: center !important;
+}
+
+/* Rows, Columns and Header CSS */
