@@ -1,6 +1,95 @@
 /* */
 /* Universal CSS */
 
+/* Background Gradient CSS was made by Manuel Pinto, and can be found at: "https://codepen.io/P1N2O/pen/pyBNzX" */
+.gameBoard {
+	width: 100vh;
+    color: #fff;
+    bottom: 0;
+	background: linear-gradient(-45deg, rgb(1, 6, 83), rgb(31, 46, 255), #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.overlay{
+    background:url("../images/water_texture.png");
+    -webkit-animation:300s scroll infinite linear;
+    -moz-animation:300s scroll infinite linear;
+    -o-animation:300s scroll infinite linear;
+    -ms-animation:300s scroll infinite linear;
+    animation:300s scroll infinite linear;
+    width:100%;
+    height:100%;
+}
+
+@-webkit-keyframes scroll{
+    100%{
+        background-position:0px -3000px;
+    }
+    } 
+
+@-moz-keyframes scroll{
+    100%{
+        background-position:0px -3000px;
+    }
+}
+
+@-o-keyframes scroll{
+    100%{
+    background-position:0px -3000px;
+    }
+}
+
+@-ms-keyframes scroll{
+    100%{
+    background-position:0px -3000px;
+    }
+}
+
+@keyframes scroll{
+    100%{
+    background-position:0px -3000px;
+    }
+}
+
 .container-fluid {
     padding: 0;
 }
@@ -33,13 +122,61 @@
 /* General Rows, Columns and Header CSS */
 
 .all-screens {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
+.title-row{
+    height: 7vw;
+}
+
+.whale-diplomacy-title {
+    text-align: center;
+    padding: 1%;
+    height: 7vw;
+}
+
+.gameColumn {
+    background-color: rgba(0, 1, 59, 0.795);
+    bottom: 0;
+    padding: 2% 0%;
+    border: 3px solid rgb(126, 218, 255);
+    box-shadow: 0px 0px 10px rgb(126, 218, 255);
+    -webkit-box-shadow: 0px 0px 10px rgb(126, 218, 255);
+    -moz-box-shadow:  0px 0px 10px rgb(126, 218, 255);
+}
+
+.gameRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /* Start Screen CSS*/
 
 .start-screen-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
+.intro-row {
+    text-align: center;
+}
+
+.scenario-Title {
+    margin-bottom: .5%;
+}
+
+.scenario-text {
+    padding: 0 3%;
+    margin-bottom: .5%;
+    font-size: 1.5vw;
+}
+
+.instructions-title-row {
+    
 }
 
 /* QA Screen CSS*/
