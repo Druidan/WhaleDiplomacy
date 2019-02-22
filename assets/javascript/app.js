@@ -209,7 +209,7 @@ const gameFunctions ={
             $(".start-screen-row").addClass("buryIt");
         //Then this function hides the end screen if it's not already hidden.
         if ($(".end-screen-row").hasClass("buryIt") !== true);
-            $(".start-screen-row").addClass("buryIt");
+            $(".end-screen-row").addClass("buryIt");
         //Then this function displays the QA screen
         $(".QA-screen-row").removeClass("buryIt");
         //then this function calls the question to be displayed.

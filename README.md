@@ -1,2 +1,2 @@
-# TriviaGame
-Homework for unit 5 - a timed trivia game.
+# Whale Diplomacy
+Homework for unit 5.
