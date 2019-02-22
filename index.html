@@ -26,24 +26,24 @@
                 </ul>
             </div>
     </nav>
-    <main class="row gameBoard">
-        <article class="row all-screens">
+    <main class="row gameBoard h-100">
+        <article class="row all-screens h-100">
             <header class="row title-row">
                 <h1 class="col-12 whale-diplomacy-title">Welcome to Whale Diplomacy!</h1>
             </header>
-            <div class="row content-row">
+            <div class="row content-row h-100">
                 <!--Future Features Go here, otherwise it's a spacer-->
-                <aside class="col-2 features-column-1">
+                <aside class="col-2 features-column-1 h-100">
                 </aside>
                 <!--All of the Game Magic Really Takes Place Here-->
-                <div class="col-8 gameColumn">
-                    <div class="col-12 gameRow">
+                <div class="col-8 gameColumn h-100">
+                    <div class="row gameRow h-100">
                         <!--Start-Game Menu-->
-                        <section class="row start-screen-row">
-                            <div class="col-12 start-screen-column">
+                        <section class="row start-screen-row h-100">
+                            <div class="col-12 start-screen-column h-100">
                                 <div class="row intro-row">
                                     <!--Describes the basic scenario of "Whale Diplomacy"-->
-                                    <h3 class="col-12 scenario-text"></h3>
+                                    <h3 class="col-12 scenario-text">Scenario Text Goes Here</h3>
                                 </div>
                                 <div class="row instructions-title-row">
                                     <!--Instructions Header-->
@@ -55,29 +55,114 @@
                                 </div>
                                 <div class="row start-button-row">
                                     <!--Start Game Button-->
-                                    <button class="col-4 start-button">Start Game</button>
+                                    <button class="col-4 playButtons start-button">Start Game</button>
                                 </div>
                             </div>
                         </section>
                         <!--Questions and Answers Screen-->
-                        <section class="row QA-screen-row">
-                            <div class="col-12 QA-screen-column">
-
+                        <section class="row QA-screen-row h-100 buryIt">
+                            <div class="col-12 QA-screen-column h-100">
+                                <div class="row QA-instructions-row">
+                                    <!--Alternating top rows which depend on whether the screen is in Question or Answer mode-->
+                                        <!--Question Screen Rows-->
+                                        <div class="row question-screen-row">
+                                            <div class="row question-timer-row">
+                                                <h2 class="col-6 question-timer-text">Seconds Remaining:</h2>
+                                                <h2 class="col-6 questionTime">0</h2>
+                                            </div>
+                                            <div class="row question-row">
+                                                <h3 class="col-12 question-text">Question Text Here</h3>
+                                            </div>
+                                        </div>
+                                        <!--Answer Screen Rows-->
+                                        <div class="row answer-screen-row">
+                                            <div class="row incorrectORcorrect-row">
+                                                <h2 class="col-12 incorrectORcorrect-text"></h2>
+                                            </div>
+                                            <div class="row real-answer-row">
+                                                <h2 class="col-12 real-answer-text"></h2>
+                                            </div>
+                                        </div>
+                                    <!--Interactive Answer Buttons Screen-->
+                                    <div class="row answers-row">
+                                        <div class="row answersSubRow1">
+                                            <div class="col-6 aColumn1">
+                                                <button class="col-10 answerButtons aButton1">Answer 1 Text</button>
+                                            </div>
+                                            <div class="col-6 aColumn2">
+                                                <button class="col-10 answerButtons aButton2">Answer 2 Text</button>
+                                            </div>
+                                        </div>
+                                        <div class="row answersSubRow2">
+                                            <div class="col-6 aColumn3">
+                                                <button class="col-10 answerButtons aButton3">Answer 3 Text</button>
+                                            </div>
+                                            <div class="col-6 aColumn4">
+                                                <button class="col-10 answerButtons aButton4">Answer 4 Text</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row nextQ-timer-row buryIt">
+                                        <h2 class="col-6 nextQ-timer-text">Seconds Until Next Question Begins:</h2>
+                                        <h2 class="col-6 nextQTime">0</h2>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                         <!--End-Game Menu-->
-                        <section class="row end-screen-row">
-                            <div class="col-12 end-screen-column">
-
+                        <section class="row end-screen-row h-100 buryIt">
+                            <div class="col-12 end-screen-column h-100">
+                                <div class="row end-title-row">
+                                    <h2 class="col-12 end-title-text">End Title Text Here</h2>
+                                </div>
+                                <div class="row results-row">
+                                    <div class="col-3 yourTime-column">
+                                        <h3 class="row yourTime-row">Your Time</h3>
+                                        <h3 class="row timeResults-row">Results Here</h3>
+                                    </div>
+                                    <div class="col-3 QsRight-column">
+                                            <h3 class="row QsRight-row">Correct</h3>
+                                            <h3 class="row rightResults-row">Results Here</h3>
+                                    </div>
+                                    <div class="col-3 QsWrong-column">
+                                            <h3 class="row QsWrong-row">Incorrect</h3>
+                                            <h3 class="row wrongResults-row">Results Here</h3>
+                                    </div>
+                                    <div class="col-3 QsUnanswered-column">
+                                            <h3 class="row QsUnanswered-row">Unanswered</h3>
+                                            <h3 class="row unansweredNum-row">Results Here</h3>
+                                    </div>
+                                </div>
+                                <div class="row end-scenario-row">
+                                    <p class="col-12 end-scenario-text noInteractionWin buryIt">
+                                        The lead whale pokes you. "Wow. It has gone brain-dead." It looks at its companions. "The humans' brains are too fragile to handle our majesty. They have devolved while we have advanced. Clearly they will be nothing but animals or dead in the next century. I believe a war is unnessesary. Our ascendency is inevitable." The whales swim away. Congratulations! You have avoided the Whale War!
+                                    </p>
+                                    <p class="col-12 end-scenario-text totalFail buryIt">
+                                        You have utterly failed. The Whale War Begins.
+                                    </p>
+                                    <p class="col-12 end-scenario-text minorFail buryIt">
+                                        You only knew a handfull of answers. The Whale War Begins.
+                                    </p>
+                                    <p class="col-12 end-scenario-text minorSuccess buryIt">
+                                        You got most of the answers correct. The Whale War Begins anyway.
+                                    </p>
+                                    <p class="col-12 end-scenario-text totalSuccess buryIt">
+                                        Congratulations you got all questions correct!  The Whale War Begins anyway.
+                                    </p>
+                                </div>
+                                <div class="row playAgain-row">
+                                        <button class="col-6 playButtons playAgainButton">Reset the Timestream and Try Again!</button>
+                                </div>
                             </div>
                         </section>
                     </div>
                 </div>
                 <!--Future Features Go here, otherwise it's a spacer-->
-                <aside class="col-2 features-column-2">
+                <aside class="col-2 features-column-2 h-100">
                 </aside>
             </div>
         </article>
     </main>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>

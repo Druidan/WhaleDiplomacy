@@ -6,6 +6,7 @@
 }
 
 .row {
+    width: 100%;
     margin-left: 0;
     margin-right: 0;
 }
@@ -29,4 +30,50 @@
     align-content: center !important;
 }
 
-/* Rows, Columns and Header CSS */
+/* General Rows, Columns and Header CSS */
+
+.all-screens {
+
+}
+
+/* Start Screen CSS*/
+
+.start-screen-row {
+
+}
+
+/* QA Screen CSS*/
+
+.question-timer-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.question-timer-text {
+    display: flex;
+    justify-self: flex-end;
+}
+
+.questionTime {
+    display: flex;
+    text-align: left;
+}
+
+.nextQ-timer-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.nextQ-timer-text {
+    display: flex;
+    text-align: right;
+}
+
+.nextQTime {
+    display: flex;
+    text-align: left;
+}
+
+/* Ending Screen CSS*/
