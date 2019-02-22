@@ -1,6 +1,6 @@
-<!--This is my star wars browser game for my unit 4 homework.-->
+<!--This is my "Whale Diplomacy" trivia game for my unit 5 homework.-->
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 
 <!--I'll form the head-->
 <head>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-<body class="container-fluid h-100 full-screen">
+<body class="container-fluid full-screen">
     <!--Navbar-->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="https://druidan.github.io/index.html">Edward L. Cheever II</a>            
@@ -26,17 +26,17 @@
                 </ul>
             </div>
     </nav>
-    <main class="row gameBoard h-100">
-        <article class="row all-screens overlay h-100">
-            <header class="row title-row">
+    <main class="row gameBoard  d-flex h-100">
+        <article class="row all-screens overlay">
+            <header class="row title-row  d-flex">
                 <h1 class="col-12 whale-diplomacy-title">Welcome to Whale Diplomacy!</h1>
             </header>
-            <div class="row content-row">
+            <div class="row content-row  d-flex">
                 <!--Future Features Go here, otherwise it's a spacer-->
-                <aside class="col-2 features-column-1 h-100">
+                <aside class="col-1 features-column-1">
                 </aside>
                 <!--All of the Game Magic Really Takes Place Here-->
-                <div class="col-8 gameColumn  h-100">
+                <div class="col-10 gameColumn  h-100">
                     <div class="row gameRow h-100">
                         <!--Start-Game Menu-->
                         <section class="row start-screen-row h-100">
@@ -54,11 +54,14 @@
                                 </div>
                                 <div class="row instructions-text-row">
                                     <!--Instructions Text-->
-
+                                    <p class="instructions-text">
+                                        This is a timed multiple-choice quiz. After you hit start, you will have twenty seconds to answer the question. To do so, simply click on the button of the statement that best answers the whales' question. Your answers or lack thereof will be noted by the whales. When the time is up, the answer will be revealed and after a short waiting period the next question will begin. After all ten questions have been completed, the whales will judge humanity. If you fail, we have a backup plan. We have built a limited time-stream manipulator that will reset the timeline to before you began the quiz, so you can have multiple chances to get it right. Humanity is counting on you. Godspeed.
+                                    </p>
                                 </div>
                                 <div class="row start-button-row">
+                                    <div class="col-6 start-gif-container"><img class="col-12 align-self-center ml-auto mr-auto start-screen-gif" src="assets/images/orcaCircles.gif"></div>
                                     <!--Start Game Button-->
-                                    <button class="col-4 playButtons start-button">Start Game</button>
+                                    <div class="col-6 start-button-container"><button class="col-8 playButtons start-button">Start Game</button></div>
                                 </div>
                             </div>
                         </section>
@@ -104,6 +107,10 @@
                                                 <button class="col-10 answerButtons aButton4">Answer 4 Text</button>
                                             </div>
                                         </div>
+                                    </div>
+                                    <!--The image that replaces the answer buttons on the answer screen-->
+                                    <div class="col-12 answer-image buryIt">
+                                        
                                     </div>
                                     <div class="row nextQ-timer-row buryIt">
                                         <h2 class="col-6 nextQ-timer-text">Seconds Until Next Question Begins:</h2>
@@ -161,7 +168,7 @@
                     </div>
                 </div>
                 <!--Future Features Go here, otherwise it's a spacer-->
-                <aside class="col-2 features-column-2 h-100">
+                <aside class="col-1 features-column-2 h-100">
                 </aside>
             </div>
         </article>

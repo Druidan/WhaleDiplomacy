@@ -1,6 +1,15 @@
 /* */
 /* Universal CSS */
 
+.full-screen {
+    position:absolute; 
+    min-height: 1000px;
+    left:0px; 
+    right:0px; 
+    top:0px;
+    bottom: 0px;
+}
+
 /* Background Gradient CSS was made by Manuel Pinto, and can be found at: "https://codepen.io/P1N2O/pen/pyBNzX" */
 .gameBoard {
 	width: 100vh;
@@ -125,22 +134,24 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .title-row{
-    height: 7vw;
+    height: 5vw;
+    margin-bottom: 1%;
 }
 
 .whale-diplomacy-title {
     text-align: center;
     padding: 1%;
-    height: 7vw;
+    font-size: 3vw;
 }
 
 .gameColumn {
     background-color: rgba(0, 1, 59, 0.795);
     bottom: 0;
-    padding: 2% 0%;
+    padding: 1% 0% 2%;
     border: 3px solid rgb(126, 218, 255);
     box-shadow: 0px 0px 10px rgb(126, 218, 255);
     -webkit-box-shadow: 0px 0px 10px rgb(126, 218, 255);
@@ -151,6 +162,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.playButtons {
+    display: inline-flex;
+    align-self: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 /* Start Screen CSS*/
@@ -172,11 +190,55 @@
 .scenario-text {
     padding: 0 3%;
     margin-bottom: .5%;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
 }
 
 .instructions-title-row {
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 2%;
+}
+
+.instructions-title {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.instructions-text {
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.start-gif-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 2%;
+}
+
+.start-screen-gif{
+    background-image: url("../images/orcaCircles.gif");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-flex;
+}
+
+.start-button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.start-button{
+    text-align: center;
+
 }
 
 /* QA Screen CSS*/

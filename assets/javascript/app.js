@@ -14,8 +14,8 @@ $(document).ready(function(){
     //Timer Variables
     let intervalId;
     let clockRunning = false;
-    let qTime = 15;
-    let aTime = 5;
+    let qTime = 20;
+    let aTime = 10;
 
     //Results Variables 
     let totalTime = 0;
@@ -37,115 +37,135 @@ $(document).ready(function(){
     //Question Object which acts as game information database.
     const questions = {
         1: {
-            question: "place-holder 1",
-            answer: "correct answer",
+            question: "Let's start out with an easy question to see if your tiny human brain can handle it. Which type of whale, amongst our mighty kind, is the biggest?",
+            answer: "The Blue Whale",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "The Blue Whale",
+                2: "The Killer Whale",
+                3: "The Sperm Whale",
+                4: "The North Atlantic Right Whale"},
+            unansweredText: "You didn't answer the question. Why? Are you too stunned by our titanic sizes?",
+            correctText: "Correct. You have pleased Gilebrand, whome you see below. You know he is pleased because he has not crushed you beneath his fins yet.",
+            incorrectText: "Ha! Incorrect, human! Look at Charles laughing at your pathetic intelligence down there!",
+            correctImg: "swimming_whale.gif",
+            incorrectImg: "mouthOpenWhale.jpg"},
         2: {
-            question: "place-holder 2",
-            answer: "correct answer",
+            question: "Let us continue, human. There are two types of whales. Which of these pairs are the correct names for these two types?",
+            answer: "Baleen Whales and Toothed Whales",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "Baleen Whales and Toothed Whales",
+                2: "Baleen Whales and Humped Whales",
+                3: "Arctic Whales and Tropical Whales",
+                4: "Breeching Whales and Toothed Whales"},
+            unansweredText: "Again, you remain silent. Are you taking this seriously, human?",
+            correctText: "Correct, human! You have made Jeremy happy enough to anime sparkle! Would you look at that!",
+            incorrectText: "Wrong, human! You make Jeremy down there laugh. He is a Toothed Whale, you know. Can you imagine what he wants to use those teeth for?",
+            correctImg: "sparkleWhale.gif",
+            incorrectImg: "killerWhaleLaughing.gif"},
         3: {
-            question: "place-holder 3",
-            answer: "correct answer",
+            question: "Speaking of Toothed Whales, did you know that we have a superior sense that allows us to find obstacles and prey, such as yourself, in the water using sound waves? What is that ability called?",
+            answer: "Echolocation",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "Echolocation",
+                2: "The Doppler Effect",
+                3: "Sonar",
+                4: "Reverberative Hearing"},
+            unansweredText: "I see you remain silent out of fear for our superior senses!",
+            correctText: "Correct! It seems that your meger intelligence has interested Meagan, our top-ranking beluga.",
+            incorrectText: "Wrong, human! Meagan, the beluga, will echolocate all of your children, and she will feast!",
+            correctImg: "interested_beluga.gif",
+            incorrectImg: "whaleEatChild.gif"},
         4: {
-            question: "place-holder 4",
-            answer: "correct answer",
+            question: "Some of us have been planning for this war for long before we even evolved higher intelligence, human. What is the name of the whale with the horn weapon on its head?",
+            answer: "The Narwhal",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "The Narwhal",
+                2: "The Orca",
+                3: "The Minke",
+                4: "The Bowhead"},
+            unansweredText: "You remain silent yet again. Perhaps you will make sounds when our Narwhal army comes.",
+            correctText: "Correct, human! Our Narwhals have become quite skilled with their horns. Watch Melissa juggle the hoop.",
+            incorrectText: "Incorrect, human! You will know their name when our armies of Narwhal come for you!",
+            correctImg: "narwhal_dribbble.gif",
+            incorrectImg: "narwhalArmy.gif"},
         5: {
-            question: "place-holder 5",
-            answer: "correct answer",
+            question: "You look dazed, human. Perhaps I will give you an easy question so that you do not faint before we can finish the game. When one of your foul whale murderers yells 'Thar she blows!,' what part of our anatomy is that murderer referencing?",
+            answer: "The Blowhole",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "The Blowhole",
+                2: "The Dorsal Fin",
+                3: "The Tail",
+                4: "The Head "},
+            unansweredText: "Your continued silence bores me human.",
+            correctText: "Correct! As a reward, you may now praise us.",
+            incorrectText: "Wrong! Human, you have failed on such an easy question. We sneer at your paltry intelligence!",
+            correctImg: "praiseWhale.gif",
+            incorrectImg: "sneering_whale.gif"},
         6: {
-            question: "place-holder 6",
-            answer: "correct answer",
+            question: "What is the common name given to the two wings on a whale’s tail fin?",
+            answer: "Flukes",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "Flukes",
+                2: "Sails",
+                3: "Vestigial Flaps",
+                4: "Gliders"},
+            unansweredText: "Perhaps your presence here is just as much a fluke as our tail fins are?",
+            correctText: "Correct! Perhaps your presence here is not a fluke after all? As a reward, here is our prototype flying whale. Even your planes will be no match for us!",
+            incorrectText: "Incorrect, human! Perhaps your presence here was a fluke after all?",
+            correctImg: "flyingWhale.gif",
+            incorrectImg: "nopeWhales.gif"},
         7: {
-            question: "place-holder 7",
-            answer: "correct answer",
+            question: "The wisest among you often come to watch us and bathe in our glory, but you often give our actions strange names. What is the behavior called when we slap the water with our tails?",
+            answer: "Lobtailing",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "Lobtailing",
+                2: "Dovetailing",
+                3: "Breaching",
+                4: "A Breach Slap"},
+            unansweredText: "My fellow whales, I believe they have sent us either a mute or an idiot. Perhaps both?",
+            correctText: "Yes, human. Such a boring name. I would have prefered 'breach slap' myself. It is a much better name.",
+            incorrectText: "Incorrect, human! And it should be called a breach slap! I breach slap you, human!",
+            correctImg: "orca-yes.gif",
+            incorrectImg: "breachslap.gif"},
         8: {
-            question: "place-holder 8",
-            answer: "correct answer",
+            question: "It is said that when one of your kind truly loves another that they would walk 1,000 miles to see them. THAT IS NOTHING. Our Gray Whales travel the farthest of all mammals on earth just because they like it! What is the longest distance they will travel when they migrate?",
+            answer: "10,000 Miles",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "3,000 Miles",
+                2: "8,000 Miles",
+                3: "10,000 Miles",
+                4: "6,000 Miles"},
+            unansweredText: "If you are too stunned to speak by such a great distance, then I imagine you will faint when you see that we have developed bionic legs! You are not safe on land, human!",
+            correctText: "Correct, human! Are not whales the greatest species on earth? Watch Ferdinand dance below and tell me we are not the most beautiful of all creatures!",
+            incorrectText: "Wrong, human! And if you think that distance is great, what will you think when you realize the land is no longer a barrier to us? Behold! We have developed bionic legs!",
+            correctImg: "beautifulWhale.gif",
+            incorrectImg: "leggedWhale2.gif"},
         9: {
-            question: "place-holder 9",
-            answer: "correct answer",
+            question: "As you can imagine, creatures of our impressive size can eat quite a bit! How much of the tiny shrimp like krill can an average blue whale consume during the summer feeding season?",
+            answer: "Over 10,000 Pounds",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "Over 14,000 Pounds",
+                2: "Over 7,000 Pounds",
+                3: "Over 2,000 Pounds",
+                4: "Over 10,000 Pounds"},
+            unansweredText: "The quiz is almost done, human, and if you continue to remain silent, so shall your kind be.",
+            correctText: "Exactly! And we all agree that we love to eat!",
+            incorrectText: "Wrong, human! I wonder how many humans that amount translates to. Barbara, let's test it on one of this one's party. Well, there they go.",
+            correctImg: "Whales_Agree.gif",
+            incorrectImg: "attackingWhale.gif"},
         10: {
-            question: "place-holder 10",
-            answer: "correct answer",
+            question: "You may believe your kind is past its barbaric history, and that you are no longer the same as those who hunted us in centuries past. Bah! Do you know how many whales were killed in the 20th Century?",
+            answer: "Over 3 Million",
             selection : {
-                1: "correct answer",
-                2: "false answer1",
-                3: "false answer2",
-                4: "false answer3"},
-            unansweredText: "Why didn't you answer?",
-            correctText: "place-holder: you got it correct!",
-            incorrectText: "place-holder: you got it wrong!"},
+                1: "Over 1 Million",
+                2: "Over 100,000",
+                3: "Over 3 Million",
+                4: "Over 10,000"},
+            unansweredText: "Your silence is deafening, human.",
+            correctText: "Too true, human. This is what your kind has wrought. This is why our coming war is just. This is why you must perish. Let this marvelous sight be your last.",
+            incorrectText: "No! No, human! So many more! My anger is boiling over!",
+            correctImg: "breaching whale.gif",
+            incorrectImg: "whalePacing.gif"},
     }
 
 //Constructors and Prototypes
@@ -276,7 +296,7 @@ const gameFunctions ={
         //display the timer
         $(".nextQTime").text(aTime);
         //Then it determines if the answer was correct or incorrect by checking the currentAnswer state.
-        if(currentAnswer !== true && isUnanswered === true) { //If it was unanswered...
+        if(isUnanswered === true) { //If it was unanswered...
             $(".incorrectORcorrect-text").text(questions[currentQuestion].unansweredText);
             $(".real-answer-text").text("The answer you DIDN'T GUESS is:" + questions[currentQuestion].answer);
         } else{
@@ -368,7 +388,7 @@ const gameFunctions ={
             clockRunning = false;
         }
         clearInterval(intervalId);
-        qTime = 15;
+        qTime = 20;
         gameFunctions.revealAnswer();
     },
     //Function that runs the next question timer countdown.
@@ -402,7 +422,7 @@ const gameFunctions ={
             clockRunning = false;
         }
         clearInterval(intervalId);
-        aTime = 5;
+        aTime = 10;
         $(".answer-screen-row").addClass("buryIt");
         $(".nextQ-timer-row").addClass("buryIt");
         answerScreenUp = false;
