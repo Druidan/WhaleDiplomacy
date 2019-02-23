@@ -226,6 +226,8 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
     display: inline-flex;
 }
 
@@ -243,6 +245,14 @@
 
 /* QA Screen CSS*/
 
+.QA-instructions-row{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    vertical-align: middle;
+}
+
 .question-timer-row {
     display: flex;
     flex-direction: row;
@@ -257,6 +267,27 @@
 .questionTime {
     display: flex;
     text-align: left;
+}
+
+.amswers-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.answer-image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.currentImg {
+    max-width: 100%;
 }
 
 .nextQ-timer-row {
@@ -276,3 +307,86 @@
 }
 
 /* Ending Screen CSS*/
+
+
+/* All Answer Images Specific CSS*/
+
+.cImg1 {
+    padding-left: -5%; 
+}
+
+.cImg2 {
+
+}
+
+.cImg3 {
+
+}
+
+.cImg4 {
+
+}
+
+.cImg5 {
+
+}
+
+.cImg6 {
+
+}
+
+.cImg7 {
+
+}
+
+.cImg8 {
+
+}
+
+.cImg9 {
+
+}
+
+.cImg10 {
+
+}
+
+.icImg1 {
+
+}
+
+.icImg2 {
+
+}
+
+.icImg3 {
+
+}
+
+.icImg4 {
+
+}
+
+.icImg5 {
+
+}
+
+.icImg6 {
+
+}
+
+.icImg7 {
+
+}
+
+.icImg8 {
+
+}
+
+.icImg9 {
+
+}
+
+.icImg10 {
+
+}
