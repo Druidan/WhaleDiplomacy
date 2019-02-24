@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Coiny|Comfortaa" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body class="container-fluid full-screen">
@@ -48,20 +50,24 @@
                                     <h3 class="col-12 scenario-Title">REVENGE</h3>
                                     <p class="col-12 scenario-text">And now you, yes -YOU- have been chosen to represent the humans in a parley for peace. But there is a catch. The whales have declared that they will only consider peace if you can prove that you know your whale facts, and maybe show that humanity has grown a little self-aware in the process. Now it's up to your wits, and your memory for whale trivia to stand between keeping the peace and an all out Whale War, that humanity cannot hope to win.</p>
                                 </div>
-                                <div class="row instructions-title-row">
-                                    <!--Instructions Header-->
-                                    <h2 class="col-12 instructions-title">How to Play Their Game</h2>
-                                </div>
-                                <div class="row instructions-text-row">
-                                    <!--Instructions Text-->
-                                    <p class="instructions-text">
-                                        This is a timed multiple-choice quiz. After you hit start, you will have twenty seconds to answer the question. To do so, simply click on the button of the statement that best answers the whales' question. Your answers or lack thereof will be noted by the whales. When the time is up, the answer will be revealed and after a short waiting period the next question will begin. After all ten questions have been completed, the whales will judge humanity. If you fail, we have a backup plan. We have built a limited time-stream manipulator that will reset the timeline to before you began the quiz, so you can have multiple chances to get it right. Humanity is counting on you. Godspeed.
-                                    </p>
-                                </div>
-                                <div class="row start-button-row">
-                                    <div class="col-6 start-gif-container"><img class="col-12 align-self-center ml-auto mr-auto start-screen-gif" src="assets/images/orcaCircles.gif"></div>
-                                    <!--Start Game Button-->
-                                    <div class="col-6 start-button-container"><button class="col-8 playButtons start-button">Start Game</button></div>
+                                <div class="row">
+                                    <div class="col-3 start-gif-container"><img class="col-12 align-self-center start-screen-gif" src="assets/images/orcaCircles.gif"></div>
+                                    <div class="col-9">
+                                        <div class="row instructions-title-row">
+                                            <!--Instructions Header-->
+                                            <h2 class="col-12 instructions-title">How to Play Their Game</h2>
+                                        </div>
+                                        <div class="row instructions-text-row">
+                                            <!--Instructions Text-->
+                                            <p class="instructions-text">
+                                                This is a timed multiple-choice quiz. After you hit start, you will have twenty seconds to answer the question. To do so, simply click on the button of the statement that best answers the whales' question. Your answers or lack thereof will be noted by the whales. When the time is up, the answer will be revealed and after a short waiting period the next question will begin. After all ten questions have been completed, the whales will judge humanity. If you fail, we have a backup plan. We have built a limited time-stream manipulator that will reset the timeline to before you began the quiz, so you can have multiple chances to get it right. Humanity is counting on you. Godspeed.
+                                            </p>
+                                        </div>
+                                        <div class="row start-button-row">
+                                            <!--Start Game Button-->
+                                            <div class="col-12 start-button-container"><button class="col-4 playButtons start-button">Start Game</button></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -73,17 +79,17 @@
                                         <!--Question Screen Rows-->
                                         <div class="row question-screen-row">
                                             <div class="row question-timer-row">
-                                                <h2 class="col-6 question-timer-text">Seconds Remaining:</h2>
-                                                <h2 class="col-6 questionTime">0</h2>
+                                                <h2 class="col-7 question-timer-text">Seconds Remaining:</h2>
+                                                <h2 class="col-5 questionTime">0</h2>
                                             </div>
                                             <div class="row question-row">
                                                 <h3 class="col-12 question-text">Question Text Here</h3>
                                             </div>
                                         </div>
                                         <!--Answer Screen Rows-->
-                                        <div class="row answer-screen-row">
+                                        <div class="row answer-screen-row buryIt">
                                             <div class="row incorrectORcorrect-row">
-                                                <h2 class="col-12 incorrectORcorrect-text"></h2>
+                                                <h2 class="col-xs-12 incorrectORcorrect-text"></h2>
                                             </div>
                                             <div class="row real-answer-row">
                                                 <h2 class="col-12 real-answer-text"></h2>
@@ -92,29 +98,29 @@
                                     <!--Interactive Answer Buttons Screen-->
                                     <div class="row answers-row">
                                         <div class="row answersSubRow1">
-                                            <div class="col-6 aColumn1">
+                                            <div class="col-6 answerColumns aColumn1">
                                                 <button class="col-10 answerButtons aButton1">Answer 1 Text</button>
                                             </div>
-                                            <div class="col-6 aColumn2">
+                                            <div class="col-6 answerColumns aColumn2">
                                                 <button class="col-10 answerButtons aButton2">Answer 2 Text</button>
                                             </div>
                                         </div>
                                         <div class="row answersSubRow2">
-                                            <div class="col-6 aColumn3">
+                                            <div class="col-6 answerColumns aColumn3">
                                                 <button class="col-10 answerButtons aButton3">Answer 3 Text</button>
                                             </div>
-                                            <div class="col-6 aColumn4">
+                                            <div class="col-6 answerColumns aColumn4">
                                                 <button class="col-10 answerButtons aButton4">Answer 4 Text</button>
                                             </div>
                                         </div>
                                     </div>
                                     <!--The image that replaces the answer buttons on the answer screen-->
-                                    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 answer-image buryIt">
+                                    <div class="col-xs-12 col-sm-10 col-md-8 answer-image buryIt">
                                         
                                     </div>
                                     <div class="row nextQ-timer-row buryIt">
-                                        <h2 class="col-6 nextQ-timer-text">Seconds Until Next Question Begins:</h2>
-                                        <h2 class="col-6 nextQTime">0</h2>
+                                        <h2 class="col-8 nextQ-timer-text">Seconds Until Next Question Begins: </h2>
+                                        <h2 class="col-4 nextQTime"> 0</h2>
                                     </div>
                                 </div>
                             </div>

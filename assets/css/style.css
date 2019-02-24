@@ -1,4 +1,10 @@
 /* */
+
+/* Usage Notes - The following Google Fonts Are Available:
+font-family: 'Coiny', cursive; - Primarily for Titles
+font-family: 'Comfortaa', cursive; - For Most Other Text
+*/
+
 /* Universal CSS */
 
 .full-screen {
@@ -12,7 +18,8 @@
 
 /* Background Gradient CSS was made by Manuel Pinto, and can be found at: "https://codepen.io/P1N2O/pen/pyBNzX" */
 .gameBoard {
-	width: 100vh;
+    width: 100vh;
+    font-family: 'Comfortaa', cursive;
     color: #fff;
     bottom: 0;
 	background: linear-gradient(-45deg, rgb(1, 6, 83), rgb(31, 46, 255), #23A6D5, #23D5AB);
@@ -144,8 +151,13 @@
 
 .whale-diplomacy-title {
     text-align: center;
+    font-family: 'Coiny', cursive;
     padding: 1%;
-    font-size: 3vw;
+    font-size: 4vw;
+}
+
+.content-row{
+    margin-top: 0%;
 }
 
 .gameColumn {
@@ -203,12 +215,14 @@
 
 .instructions-title {
     text-align: center;
-    font-size: 1.5vw;
+    font-family: 'Coiny', cursive;
+    font-size: 2.5vw;
 }
 
 .instructions-text {
     text-align: center;
     font-size: 1.2vw;
+    padding: 0 3%;
 }
 
 .start-gif-container{
@@ -216,31 +230,45 @@
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 0 2%;
+    padding: 2% 2%;
 }
 
 .start-screen-gif{
     background-image: url("../images/orcaCircles.gif");
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
+    margin: auto;
+    width: 100%;
+    height: 50%;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     display: inline-flex;
 }
+/*
+.start-button-row{
+    display: flex;
+    flex-direction: column;
+}
 
 .start-button-container{
     display: flex;
+    justify-self: center;
     flex-direction: column;
     justify-content: center;
     vertical-align: middle;
 }
-
+*/
 .start-button{
     text-align: center;
-
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    margin: 0 auto;
+    padding: 1%;
+    border-radius: 15px;
+    
+    height: 3vw;
 }
 
 /* QA Screen CSS*/
@@ -253,6 +281,8 @@
     vertical-align: middle;
 }
 
+/* Question Screen CSS*/
+
 .question-timer-row {
     display: flex;
     flex-direction: row;
@@ -260,21 +290,79 @@
 }
 
 .question-timer-text {
-    display: flex;
-    justify-self: flex-end;
+    text-align: right;
+    font-size: 3vw;
 }
 
 .questionTime {
     display: flex;
     text-align: left;
+    font-size: 3.5vw;
 }
 
-.amswers-row{
+.question-text {
+    text-align: center;
+    font-size: 3vw;
+}
+
+/* Answer Screen CSS*/
+
+.answer-screen-row{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    vertical-align: middle;
+}
+
+.incorrectORcorrect-row {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2%;
+}
+
+.incorrectORcorrect-text {
+    display: flex;
+    align-self: center;
+    font-size: 3vw;
+}
+
+.answers-row{
+    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     vertical-align: middle;
+}
+
+.answersSubRow1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    vertical-align: middle;
+}
+
+.answersSubRow2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    vertical-align: middle;
+}
+
+.answerColumns{
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.answerButtons{
+    margin: 0 auto;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    align-content: center;
+    border-radius: 15px;
 }
 
 .answer-image {
@@ -290,6 +378,11 @@
     max-width: 100%;
 }
 
+.real-answer-text {
+    font-size: 3vw;
+    text-align: center;
+}
+
 .nextQ-timer-row {
     display: flex;
     flex-direction: row;
@@ -299,11 +392,14 @@
 .nextQ-timer-text {
     display: flex;
     text-align: right;
+    align-self: center;
+    font-size: 3vw;
 }
 
 .nextQTime {
     display: flex;
     text-align: left;
+    font-size: 4vw;
 }
 
 /* Ending Screen CSS*/
