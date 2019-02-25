@@ -188,9 +188,6 @@ $(document).ready(function(){
             incorrectImgClass: "icImg10",},
     }
 
-//Constructors and Prototypes
-
-
 //Event-Triggered Functions
 
 startButton.click( function() { //What happens when the Start Button is Clicked -
@@ -282,9 +279,6 @@ const gameFunctions ={
         gameFunctions.questionTime(); //Then the timer countdown is called to begin
     },
     revealAnswer : function() {    //A function that reveals the real answer.
-        console.log(unAnsweredQs);
-        console.log(correctAs);
-        console.log(inCorrectAs);
         questionScreenUp = false;    //First this function deactivates the question screen on state.
         answerScreenUp = true;    //Second this function declares the answer is up.
         $(".question-screen-row").addClass("buryIt");    //Then it hides the Question Screen elements.
@@ -307,15 +301,21 @@ const gameFunctions ={
             $(".incorrectORcorrect-text").text(questions[currentQuestion].unansweredText); //Display text for an unanswered question.
             $(".real-answer-text").text("The answer you DIDN'T GUESS is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
             $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
+            missingAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
+            missingAnswerSound.play();
         } else{
             if (currentAnswer === true) { //If it's correct...
                 $(".incorrectORcorrect-text").text(questions[currentQuestion].correctText); //Display text for a correct answer.
                 $(".real-answer-text").text("The answer was:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
                 $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].correctImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + cImage + "'>"); //Add an image tag with image classes, and the image source
+                rightAnswerSound = new sound("assets/sounds/correctAnswer.wav");
+                rightAnswerSound.play();
             } else{ //If it's wrong
                 $(".incorrectORcorrect-text").text(questions[currentQuestion].incorrectText);  //Display text for an incorrect answer.
                 $(".real-answer-text").text("The real answer is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
                 $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
+                wrongAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
+                wrongAnswerSound.play();
             }
         }
         resizeAnswerImage(); //Resize and Move the image based on viewport size.
@@ -429,6 +429,22 @@ resizeAnswerImage = function(){ //A function to change the placement of the answ
         }
     }
 }
+
+//Constructors and Prototypes
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+} 
 
 //My JS Ends beyond this point.
 });
