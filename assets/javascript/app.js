@@ -45,8 +45,8 @@ $(document).ready(function(){
                 3: "The Sperm Whale",
                 4: "The North Atlantic Right Whale",},
             unansweredText: "You didn't answer the question. Why? Are you too stunned by our titanic sizes?",
-            correctText: "Correct. You have pleased Gilebrand, whome you see below. You know he is pleased because he has not crushed you beneath his fins yet.",
-            incorrectText: "Ha! Incorrect, human! Look at Charles laughing at your pathetic intelligence down there!",
+            correctText: "Correct. You have pleased Gilebrand, whome you see over there. You know he is pleased because he has not crushed you beneath his fins yet.",
+            incorrectText: "Ha! Incorrect, human! Look at Charles laughing at your pathetic intelligence over there!",
             correctImg: "swimming_whale.gif",
             incorrectImg: "amusedKillerWhale.gif",
             correctImgClass: "cImg1",
@@ -61,7 +61,7 @@ $(document).ready(function(){
                 4: "Breeching Whales and Toothed Whales",},
             unansweredText: "Again, you remain silent. Are you taking this seriously, human?",
             correctText: "Correct, human! You have made Jeremy happy enough to anime sparkle! Would you look at that!",
-            incorrectText: "Wrong, human! You make Jeremy down there laugh. He is a Toothed Whale, you know. Can you imagine what he wants to use those teeth for?",
+            incorrectText: "Wrong, human! You make Jeremy over there laugh. He is a Toothed Whale, you know. Can you imagine what he wants to use those teeth for?",
             correctImg: "sparkleWhale.gif",
             incorrectImg: "killerWhaleLaughing.gif",
             correctImgClass: "cImg2",
@@ -150,7 +150,7 @@ $(document).ready(function(){
                 3: "10,000 Miles",
                 4: "6,000 Miles",},
             unansweredText: "If you are too stunned to speak by such a great distance, then I imagine you will faint when you see that we have developed bionic legs! You are not safe on land, human!",
-            correctText: "Correct, human! Are not whales the greatest species on earth? Watch Ferdinand dance below and tell me we are not the most beautiful of all creatures!",
+            correctText: "Correct, human! Are not whales the greatest species on earth? Watch Ferdinand dance and tell me we are not the most beautiful of all creatures!",
             incorrectText: "Wrong, human! And if you think that distance is great, what will you think when you realize the land is no longer a barrier to us? Behold! We have developed bionic legs!",
             correctImg: "beautifulWhale.gif",
             incorrectImg: "leggedWhale2.gif",
@@ -166,7 +166,7 @@ $(document).ready(function(){
                 4: "Over 10,000 Pounds",},
             unansweredText: "The quiz is almost done, human, and if you continue to remain silent, so shall your kind be.",
             correctText: "Exactly! And we all agree that we love to eat!",
-            incorrectText: "Wrong, human! I wonder how many humans that amount translates to. Barbara, let's test it on one of this one's party. Well, there they go.",
+            incorrectText: "Wrong, human! I wonder how many humans that weight translates into. Barbara, let's test it on one of this one's companions.",
             correctImg: "Whales_Agree.gif",
             incorrectImg: "attackingWhale.gif",
             correctImgClass: "cImg9",
@@ -181,7 +181,7 @@ $(document).ready(function(){
                 4: "Over 10,000",},
             unansweredText: "Your silence is deafening, human.",
             correctText: "Too true, human. This is what your kind has wrought. This is why our coming war is just. This is why you must perish. Let this marvelous sight be your last.",
-            incorrectText: "No! No, human! So many more! My anger is boiling over!",
+            incorrectText: "No! No, human! So many more! MILLIONS more! My anger is making my blubber boil!",
             correctImg: "breaching whale.gif",
             incorrectImg: "whalePacing.gif",
             correctImgClass: "cImg10",
@@ -292,16 +292,16 @@ const gameFunctions ={
         //Then it determines if the answer was correct or incorrect by checking the currentAnswer state.
         if(isUnanswered === true) { //If it was unanswered...
             $(".incorrectORcorrect-text").text(questions[currentQuestion].unansweredText); //Display text for an unanswered question.
-            $(".real-answer-text").text("The answer you DIDN'T GUESS is:" + questions[currentQuestion].answer); //Displays the correct answer.
+            $(".real-answer-text").text("The answer you DIDN'T GUESS is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
             $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
         } else{
             if (currentAnswer === true) { //If it's correct...
                 $(".incorrectORcorrect-text").text(questions[currentQuestion].correctText); //Display text for a correct answer.
-                $(".real-answer-text").text("The answer was:" + questions[currentQuestion].answer); //Displays the correct answer.
+                $(".real-answer-text").text("The answer was:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
                 $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].correctImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + cImage + "'>"); //Add an image tag with image classes, and the image source
             } else{ //If it's wrong
                 $(".incorrectORcorrect-text").text(questions[currentQuestion].incorrectText);  //Display text for an incorrect answer.
-                $(".real-answer-text").text("The real answer is: '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
+                $(".real-answer-text").text("The real answer is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
                 $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
             }
         }
@@ -328,7 +328,7 @@ const gameFunctions ={
                 if (correctAs <= 5) {
                     minorFail.removeClass("buryIt");
                 } else {
-                    if (correctAs < 10) {
+                    if (correctAs > 5 && correctAs < 10) {
                         minorSuccess.removeClass("buryIt");
                     } else {
                         totalSuccess.removeClass("buryIt");
