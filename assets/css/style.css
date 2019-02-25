@@ -145,16 +145,17 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
 }
 
 .title-row{
-    height: 5vw;
-    margin-bottom: 1%;
+    margin-bottom: 0;
 }
 
 .whale-diplomacy-title {
     text-align: center;
     font-family: 'Coiny', cursive;
     padding: 1%;
+    margin: 0;
     font-size: 4vw;
     background-image: radial-gradient(rgb(3, 0, 102),transparent);
+    -webkit-background-image: radial-gradient(rgb(3, 0, 102),transparent);
 }
 
 .content-row{
@@ -654,6 +655,22 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 3vw;
     }
 
+    .incorrectORcorrect-text {
+        font-size: 3vw;
+    }
+
+    .real-answer-text {
+        font-size: 3vw;
+    }
+
+    .nextQ-timer-text {
+        font-size: 3vw;
+    }
+    
+    .nextQTime {
+        font-size: 4vw;
+    }
+
 }
 
 @media screen and (max-width: 992px) { 
@@ -701,10 +718,6 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 5vw;
     }
 
-    .content-row {
-        margin-top: 1.5%;
-    }
-
     .scenario-Title {
         margin-bottom: .5%;
     }
@@ -728,6 +741,38 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         padding: 10% 2%;
     }
 
+    .question-timer-text {
+        font-size: 3.8vw;
+    }
+
+    .questionTime {
+        font-size: 4vw;
+    }
+
+    .question-text {
+        font-size: 3.5vw;
+    }
+
+    .answerButtons {
+        font-size: 3.5vw;
+    }
+
+    .incorrectORcorrect-text {
+        font-size: 3.3vw;
+    }
+
+    .real-answer-text {
+        font-size: 3.3vw;
+    }
+
+    .nextQ-timer-text {
+        font-size: 3.3vw;
+    }
+    
+    .nextQTime {
+        font-size: 4.3vw;
+    }
+
 }
 
 @media screen and (max-width: 768px) { 
@@ -737,7 +782,6 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     }
 
     .content-row{
-        margin-top: 1.5%;
         padding: 0 2.5%;
     }
 
@@ -770,6 +814,38 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         height: 4vw;
     }
 
+    .question-timer-text {
+        font-size: 3.8vw;
+    }
+
+    .questionTime {
+        font-size: 4vw;
+    }
+
+    .question-text {
+        font-size: 3.5vw;
+    }
+
+    .answerButtons {
+        font-size: 3.5vw;
+    }
+
+    .incorrectORcorrect-text {
+        font-size: 3.6vw;
+    }
+
+    .real-answer-text {
+        font-size: 3.6vw;
+    }
+
+    .nextQ-timer-text {
+        font-size: 3.6vw;
+    }
+    
+    .nextQTime {
+        font-size: 4.6vw;
+    }
+
 }
 
 @media screen and (max-width: 720px) { 
@@ -797,6 +873,38 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         padding: 12% 2%;
     }
 
+    .question-timer-text {
+        font-size: 4.1vw;
+    }
+
+    .questionTime {
+        font-size: 5.2vw;
+    }
+
+    .question-text {
+        font-size: 4.4vw;
+    }
+
+    .answerButtons {
+        font-size: 3.9vw;
+    }
+
+    .incorrectORcorrect-text {
+        font-size: 3.9vw;
+    }
+
+    .real-answer-text {
+        font-size: 3.9vw;
+    }
+
+    .nextQ-timer-text {
+        font-size: 3.9vw;
+    }
+    
+    .nextQTime {
+        font-size: 4.9vw;
+    }
+
 }
 
 @media screen and (max-width: 640px) { 
@@ -806,7 +914,6 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     }
 
     .content-row{
-        margin-top: 1.5%;
         padding: 0 2.5%;
     }
 
@@ -834,6 +941,39 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         padding: 15% 2%;
     }
 
+    .question-timer-text {
+        font-size: 4vw;
+    }
+
+    .questionTime {
+        font-size: 4.2vw;
+    }
+
+    .question-text {
+        font-size: 4vw;
+    }
+
+    .answerButtons {
+        font-size: 4vw;
+        padding-bottom: 7%;
+    }
+
+    .incorrectORcorrect-text {
+        font-size: 4.2vw;
+    }
+
+    .real-answer-text {
+        font-size: 4.2vw;
+    }
+
+    .nextQ-timer-text {
+        font-size: 4.2vw;
+    }
+    
+    .nextQTime {
+        font-size: 5.2vw;
+    }
+
 }
 
 @media screen and (max-width: 575px) { 
@@ -850,6 +990,38 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         height: 6vw;
     }
 
+    .question-timer-text {
+        font-size: 4.7vw;
+    }
+
+    .questionTime {
+        font-size: 5.8vw;
+    }
+
+    .question-text {
+        font-size: 5vw;
+    }
+
+    .answerButtons {
+        font-size: 4.5vw;
+    }
+
+    .incorrectORcorrect-text {
+        font-size: 4.5vw;
+    }
+
+    .real-answer-text {
+        font-size: 4.5vw;
+    }
+
+    .nextQ-timer-text {
+        font-size: 4.5vw;
+    }
+    
+    .nextQTime {
+        font-size: 5.5vw;
+    }
+
 }
 
 @media screen and (max-width: 540px) { 
@@ -860,16 +1032,41 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     .start-screen-gif{
         height: 150px;
     }
+    
+    .question-timer-text {
+        font-size: 5vw;
+    }
+
+    .questionTime {
+        font-size: 5.5vw;
+    }
+
+    .question-text {
+        font-size: 5.5vw;
+    }
+
+    .answerButtons {
+        font-size: 5vw;
+        padding-bottom: 9%;
+    }
+
+    .incorrectORcorrect-text {
+        font-size: 5vw;
+    }
+
+    .real-answer-text {
+        font-size: 5vw;
+    }
+
 }
 
 @media screen and (max-width: 480px) { 
 
     .whale-diplomacy-title {
-        font-size: 5.5vw;
+        font-size: 6.5vw;
     }
 
     .content-row{
-        margin-top: 1.5%;
         padding: 0 2.5%;
     }
 
@@ -896,6 +1093,26 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 2.5vw;
         padding: 0;
     }
+    
+    .question-timer-text {
+        font-size: 5.5vw;
+    }
+
+    .questionTime {
+        font-size: 6.5vw;
+    }
+
+    .question-text {
+        font-size: 6.5vw;
+    }
+
+    .answerButtons {
+        font-size: 5.3vw;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 11%;
+    }
+
 }
 
 @media screen and (max-width: 420px) { 
