@@ -267,7 +267,7 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     background-color: rgb(0, 7, 39);
     color: whitesmoke;
     font-size: 2vw;
-    height: 3vw;
+    height: 6vw;
 }
 
 /* QA Screen CSS*/
@@ -606,6 +606,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 4vw;
     }
 
+    .end-scenario-text{
+        font-size: 2.3vw;
+    }
+    
+    .playButtons {
+        font-size: 2.5vw;
+    }
+
 }
 
 @media screen and (max-width: 1100px) { 
@@ -671,6 +679,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 4vw;
     }
 
+    .end-scenario-text{
+        font-size: 2.6vw;
+    }
+    
+    .playButtons {
+        font-size: 2.7vw;
+    }
+
 }
 
 @media screen and (max-width: 992px) { 
@@ -710,6 +726,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         margin-top: 1.5%;
     }
 
+    .end-scenario-text{
+        font-size: 2.9vw;
+    }
+    
+    .playButtons {
+        font-size: 2.9vw;
+    }
+
 }
 
 @media screen and (max-width: 890px) { 
@@ -739,6 +763,10 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     
     .start-gif-container{
         padding: 10% 2%;
+    }
+
+    .start-button{
+        height: 6.3vw;
     }
 
     .question-timer-text {
@@ -771,6 +799,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     
     .nextQTime {
         font-size: 4.3vw;
+    }
+    
+    .end-scenario-text{
+        font-size: 3.1vw;
+    }
+    
+    .playButtons {
+        font-size: 3.2vw;
     }
 
 }
@@ -811,7 +847,7 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     
     .start-button{
         font-size: 2.5vw;
-        height: 4vw;
+        height: 6vw;
     }
 
     .question-timer-text {
@@ -844,6 +880,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     
     .nextQTime {
         font-size: 4.6vw;
+    }
+    
+    .end-scenario-text{
+        font-size: 3.2vw;
+    }
+    
+    .playButtons {
+        font-size: 3.5vw;
     }
 
 }
@@ -903,6 +947,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     
     .nextQTime {
         font-size: 4.9vw;
+    }
+    
+    .end-scenario-text{
+        font-size: 3.4vw;
+    }
+    
+    .playButtons {
+        font-size: 3.9vw;
     }
 
 }
@@ -973,6 +1025,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     .nextQTime {
         font-size: 5.2vw;
     }
+    
+    .end-scenario-text{
+        font-size: 3.6vw;
+    }
+    
+    .playButtons {
+        font-size: 4.2vw;
+    }
 
 }
 
@@ -987,7 +1047,7 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
 
     .start-button{
         font-size: 3.5vw;
-        height: 6vw;
+        height: 6.3vw;
     }
 
     .question-timer-text {
@@ -1003,7 +1063,7 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     }
 
     .answerButtons {
-        font-size: 4.5vw;
+        font-size: 4.3vw;
     }
 
     .incorrectORcorrect-text {
@@ -1020,6 +1080,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     
     .nextQTime {
         font-size: 5.5vw;
+    }
+
+    .end-scenario-text{
+        font-size: 3.8vw;
+    }
+    
+    .playButtons {
+        font-size: 4.5vw;
     }
 
 }
@@ -1046,7 +1114,7 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     }
 
     .answerButtons {
-        font-size: 5vw;
+        font-size: 4.8vw;
         padding-bottom: 9%;
     }
 
@@ -1056,6 +1124,18 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
 
     .real-answer-text {
         font-size: 5vw;
+    }
+
+    .col-3 {
+        padding: 0 5px;
+    }
+
+    .categoryHead {
+        padding: 1%;
+    }
+
+    .end-scenario-text{
+        font-size: 3.9vw;
     }
 
 }
@@ -1107,10 +1187,14 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     }
 
     .answerButtons {
-        font-size: 5.3vw;
+        font-size: 5.1vw;
         padding-left: 0;
         padding-right: 0;
         padding-bottom: 11%;
+    }
+
+    .end-scenario-text{
+        font-size: 4.1vw;
     }
 
 }
@@ -1136,6 +1220,15 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 2.8vw;
         padding: 0;
     }
+
+    .end-scenario-text{
+        font-size: 4.5vw;
+    }
+    
+    .playButtons {
+        font-size: 4.8vw;
+    }
+
 }
 
 @media screen and (max-width: 380px) { 
@@ -1166,6 +1259,10 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
     .start-button{
         font-size: 4vw;
         height: 6.5vw;
+    }
+
+    .end-scenario-text{
+        font-size: 5vw;
     }
 
 }
@@ -1214,6 +1311,10 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         height: 7vw;
     }
 
+    .end-scenario-text{
+        font-size: 5.2vw;
+    }
+
 }
 
 @media screen and (max-width: 320px) { 
@@ -1240,6 +1341,15 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 3.5vw;
         padding: 0;
     }
+    
+    .end-scenario-text{
+        font-size: 5.4vw;
+    }
+    
+    .playButtons {
+        font-size: 5.4vw;
+    }
+
 }
 
 @media screen and (max-width: 278px) { 
@@ -1266,10 +1376,32 @@ font-family: 'Comfortaa', cursive; - For Most Other Text
         font-size: 3.8vw;
         padding: 0;
     }
+        
+    .end-scenario-text{
+        font-size: 5.7vw;
+    }
+    
+    .playButtons {
+        font-size: 5.7vw;
+    }
+
 }
 
 @media screen and (max-width: 240px) { 
     .start-screen-gif{
         height: 80px;
     }
+
+    .start-button{
+        height: 7vw;
+    }
+
+    .end-scenario-text{
+        font-size: 6vw;
+    }
+    
+    .playButtons {
+        font-size: 6vw;
+    }
+
 }
