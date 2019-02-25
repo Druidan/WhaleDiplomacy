@@ -244,10 +244,20 @@ const gameFunctions ={
     startGame : function() {     //A function that starts the game.
         gameOn = true;    //This function first changes the game state to "on"
         $(".whale-diplomacy-title").text("Whale Diplomacy");    //Alter title text.
-        if ($(".start-screen-row").hasClass("buryIt") !== true);    //Then this function hides the start screen if it's not already hidden.
-            $(".start-screen-row").addClass("buryIt");
-        if ($(".end-screen-row").hasClass("buryIt") !== true);  //Then this function hides the end screen if it's not already hidden.
-            $(".end-screen-row").addClass("buryIt");
+        if ($(".start-screen-row").hasClass("buryIt") !== true){    //Then this function hides the start screen if it's not already hidden.
+            $(".start-screen-row").addClass("buryIt");}
+        if ($(".end-screen-row").hasClass("buryIt") !== true){  //Then this function hides the end screen if it's not already hidden.
+            $(".end-screen-row").addClass("buryIt");}
+        if ($(".noInteractionWin").hasClass("buryIt") !== true){  //Then this function hides the ending scenarios, depending on if the game has been replayed.
+            $(".noInteractionWin").addClass("buryIt");}
+        if ($(".totalFail").hasClass("buryIt") !== true){
+            $(".totalFail").addClass("buryIt");}
+        if ($(".minorFail").hasClass("buryIt") !== true){ 
+            $(".minorFail").addClass("buryIt");}
+        if ($(".minorSuccess").hasClass("buryIt") !== true){
+            $(".minorSuccess").addClass("buryIt");}
+        if ($(".totalSuccess").hasClass("buryIt") !== true){
+            $(".totalSuccess").addClass("buryIt");}
         $(".QA-screen-row").removeClass("buryIt");    //Then this function displays the QA screen
         gameFunctions.nextQuestion();    //then this function calls the question to be displayed.
     },
@@ -272,6 +282,9 @@ const gameFunctions ={
         gameFunctions.questionTime(); //Then the timer countdown is called to begin
     },
     revealAnswer : function() {    //A function that reveals the real answer.
+        console.log(unAnsweredQs);
+        console.log(correctAs);
+        console.log(inCorrectAs);
         questionScreenUp = false;    //First this function deactivates the question screen on state.
         answerScreenUp = true;    //Second this function declares the answer is up.
         $(".question-screen-row").addClass("buryIt");    //Then it hides the Question Screen elements.
@@ -318,26 +331,26 @@ const gameFunctions ={
         $(".rightResults-row").text(correctAs);
         $(".wrongResults-row").text(inCorrectAs);
         $(".unansweredNum-row").text(unAnsweredQs);
+        console.log(unAnsweredQs);
+        console.log(correctAs);
+        console.log(inCorrectAs);
         //Based off of the number of correct answers (or unanswered questions) display an end-game scenario.
-        if (unAnsweredQs === 10) {
+        if (unAnsweredQs === 10 && correctAs === 0 && inCorrectAs === 0) {
             noInteractionWin.removeClass("buryIt");
-        } else {
-            if (correctAs === 0) {
-                totalFail.removeClass("buryIt");
-            } else {
-                if (correctAs <= 5) {
-                    minorFail.removeClass("buryIt");
-                } else {
-                    if (correctAs > 5 && correctAs < 10) {
-                        minorSuccess.removeClass("buryIt");
-                    } else {
-                        totalSuccess.removeClass("buryIt");
-                    }
-                }
-            }
-            
         }
-    },
+        if (correctAs === 0 && unAnsweredQs === 0) {
+                totalFail.removeClass("buryIt");
+        }
+        if (correctAs <= 5 && unAnsweredQs === 0) {
+            minorFail.removeClass("buryIt");
+        }
+        if (correctAs > 5 && correctAs < 10 && unAnsweredQs === 0) {
+            minorSuccess.removeClass("buryIt");
+        }
+        if (correctAs === 10){
+            totalSuccess.removeClass("buryIt");
+        }
+    },        
     questionTime : function() {    //Function that runs the question timer countdown.
         if (!clockRunning) {    //If statement that setsthe game state to running, set's the second interval, triggering the countdown function.
             clockRunning = true;
