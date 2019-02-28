@@ -1,5 +1,4 @@
 $(document).ready(function(){
-//My JS starts past this point.
 
 //Global Variables and Objects
     //Game States
@@ -190,261 +189,259 @@ $(document).ready(function(){
 
 //Event-Triggered Functions
 
-startButton.click( function() { //What happens when the Start Button is Clicked -
-    if (gameOn === true || questionScreenUp === true || answerScreenUp === true || resultsScreenUp === true) {
-        return false; //Prevent clicks when the game state is not right.
-    }
-    gameFunctions.startGame(); //Call the Start Game Function
-});
+    startButton.click( function() { //What happens when the Start Button is Clicked -
+        if (gameOn === true || questionScreenUp === true || answerScreenUp === true || resultsScreenUp === true) {
+            return false; //Prevent clicks when the game state is not right.
+        }
+        gameFunctions.startGame(); //Call the Start Game Function
+    });
 
-playAgainButton.click( function() { //What happens when the PlayAgain Button is Clicked -
-    if (gameOn === true || questionScreenUp === true || answerScreenUp === true) {
-        return false;  //Prevent clicks when the game state is not right.
-    }
-    //Resets the screen state.
-    answerScreenUp = false;
-    resultsScreenUp = false;
-    //Reset question number.
-    currentQuestion = 1;
-    //Reset Results Variables 
-    totalTime = 0;
-    correctAs = 0;
-    inCorrectAs = 0;
-    unAnsweredQs = 0;
-    gameFunctions.startGame(); //Call the Start Game Function
-});
+    playAgainButton.click( function() { //What happens when the PlayAgain Button is Clicked -
+        if (gameOn === true || questionScreenUp === true || answerScreenUp === true) {
+            return false;  //Prevent clicks when the game state is not right.
+        }
+        //Resets the screen state.
+        answerScreenUp = false;
+        resultsScreenUp = false;
+        //Reset question number.
+        currentQuestion = 1;
+        //Reset Results Variables 
+        totalTime = 0;
+        correctAs = 0;
+        inCorrectAs = 0;
+        unAnsweredQs = 0;
+        gameFunctions.startGame(); //Call the Start Game Function
+    });
 
-answerButtons.click( function() { //What happens when any Answer Button is Clicked -
-    if (gameOn === false || questionScreenUp === false || answerScreenUp === true || resultsScreenUp === true) {
-        return false; //Prevent clicks when the game state is not right.
-    }
-    //This Function first compares the clicked button to the correct answer to determine if it's true.
-    if (this.textContent === questions[currentQuestion].answer) { //If the clicked button is correct...
-        ++correctAs;  //Increase the number of correct guesses by 1.
-        currentAnswer = true; //Set the currentAnswer state to true.
-        gameFunctions.stopQuestionTime();  //Call the function to stop the timer and reveal the answer.
-    } else {     //If the clicked button is incorrect...
-        ++inCorrectAs;    //Increase the number of incorrect guesses by 1.
-        currentAnswer = false; //Set the currentAnswer state to false.
-        gameFunctions.stopQuestionTime();  //Call the function to stop the timer and reveal the answer.
-    }
-});
+    answerButtons.click( function() { //What happens when any Answer Button is Clicked -
+        if (gameOn === false || questionScreenUp === false || answerScreenUp === true || resultsScreenUp === true) {
+            return false; //Prevent clicks when the game state is not right.
+        }
+        //This Function first compares the clicked button to the correct answer to determine if it's true.
+        if (this.textContent === questions[currentQuestion].answer) { //If the clicked button is correct...
+            ++correctAs;  //Increase the number of correct guesses by 1.
+            currentAnswer = true; //Set the currentAnswer state to true.
+            gameFunctions.stopQuestionTime();  //Call the function to stop the timer and reveal the answer.
+        } else {     //If the clicked button is incorrect...
+            ++inCorrectAs;    //Increase the number of incorrect guesses by 1.
+            currentAnswer = false; //Set the currentAnswer state to false.
+            gameFunctions.stopQuestionTime();  //Call the function to stop the timer and reveal the answer.
+        }
+    });
 
 //Responsiveness Events
-$( window ).resize(function() {
-    resizeAnswerImage();
-});
+    $( window ).resize(function() {
+        resizeAnswerImage();
+    });
 
 //Defined Functions
 
-const gameFunctions ={
-    startGame : function() {     //A function that starts the game.
-        gameOn = true;    //This function first changes the game state to "on"
-        $(".whale-diplomacy-title").text("Whale Diplomacy");    //Alter title text.
-        if ($(".start-screen-row").hasClass("buryIt") !== true){    //Then this function hides the start screen if it's not already hidden.
-            $(".start-screen-row").addClass("buryIt");}
-        if ($(".end-screen-row").hasClass("buryIt") !== true){  //Then this function hides the end screen if it's not already hidden.
-            $(".end-screen-row").addClass("buryIt");}
-        if ($(".noInteractionWin").hasClass("buryIt") !== true){  //Then this function hides the ending scenarios, depending on if the game has been replayed.
-            $(".noInteractionWin").addClass("buryIt");}
-        if ($(".totalFail").hasClass("buryIt") !== true){
-            $(".totalFail").addClass("buryIt");}
-        if ($(".minorFail").hasClass("buryIt") !== true){ 
-            $(".minorFail").addClass("buryIt");}
-        if ($(".minorSuccess").hasClass("buryIt") !== true){
-            $(".minorSuccess").addClass("buryIt");}
-        if ($(".totalSuccess").hasClass("buryIt") !== true){
-            $(".totalSuccess").addClass("buryIt");}
-        $(".QA-screen-row").removeClass("buryIt");    //Then this function displays the QA screen
-        gameFunctions.nextQuestion();    //then this function calls the question to be displayed.
-    },
-    nextQuestion : function() { //A function that grabs the information from the current question object and displays it.
-        if ($(".question-screen-row").hasClass("buryIt")){    //If the question screen elements are hidden, reveal them.
-            $(".question-screen-row").removeClass("buryIt");
-            $(".answers-row").removeClass("buryIt");
-        }
-        questionScreenUp = true;    //Declare that the question screen is up.
-        $(".question-text").text(questions[currentQuestion].question);    //Then display the current question text.
-        let unUsedButtons = [1, 2, 3, 4]; //Establish an array that will represent the numbers of each answer button in the HTML.
-        for (var i = 1; i <= 4; i++) {  //For four times, randomnly select a button and attach a selection text to it.
-            j = unUsedButtons[Math.floor(Math.random() * unUsedButtons.length)];    //Determine which button number we are targeting randomly
-            let jIndex = unUsedButtons.indexOf(j);  //Grab the index of the button number we have grabbed.
-                unUsedButtons.splice(jIndex, 1);    //remove the button number so we don't use it twice.
-            let currentButton = ".aButton"+[j];     //establish a variable that created a string of the the button with our randomly selected number.
-            let targetButton = $(currentButton);    //Create a variable that targets our combined string.
-            let currentSelection = questions[currentQuestion].selection[i];     //Create a variable that targets each answer selection in the questions object.
-            targetButton.text(currentSelection); //add the text of the possible answer to the random button.
-        };
-        $(".questionTime").text(qTime);    //display the timer
-        gameFunctions.questionTime(); //Then the timer countdown is called to begin
-    },
-    revealAnswer : function() {    //A function that reveals the real answer.
-        questionScreenUp = false;    //First this function deactivates the question screen on state.
-        answerScreenUp = true;    //Second this function declares the answer is up.
-        $(".question-screen-row").addClass("buryIt");    //Then it hides the Question Screen elements.
-        $(".answers-row").addClass("buryIt");    //Then it hides the answer buttons.
-        if ($(".answer-screen-row").hasClass("buryIt")){    //Then, if the answer row elements are hidden it reveals the Answer Screen Elements.
-            $(".answer-screen-row").removeClass("buryIt");
-        }
-        if ($(".nextQ-timer-row").hasClass("buryIt")){
-            $(".nextQ-timer-row").removeClass("buryIt");
-        }
-        if ($(".answer-image").hasClass("buryIt")){
-            $(".answer-image").removeClass("buryIt");
-        }
-        $(".nextQTime").text(aTime);    //display the timer
-        $("answer-image").removeClass("buryIt");    //Reveal the answer image area.
-        let cImage = questions[currentQuestion].correctImg
-        let icImage = questions[currentQuestion].incorrectImg
-        //Then it determines if the answer was correct or incorrect by checking the currentAnswer state.
-        if(isUnanswered === true) { //If it was unanswered...
-            $(".incorrectORcorrect-text").text(questions[currentQuestion].unansweredText); //Display text for an unanswered question.
-            $(".real-answer-text").text("The answer you DIDN'T GUESS is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
-            $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
-            missingAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
-            missingAnswerSound.play();
-        } else{
-            if (currentAnswer === true) { //If it's correct...
-                $(".incorrectORcorrect-text").text(questions[currentQuestion].correctText); //Display text for a correct answer.
-                $(".real-answer-text").text("The answer was:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
-                $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].correctImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + cImage + "'>"); //Add an image tag with image classes, and the image source
-                rightAnswerSound = new sound("assets/sounds/correctAnswer.wav");
-                rightAnswerSound.play();
-            } else{ //If it's wrong
-                $(".incorrectORcorrect-text").text(questions[currentQuestion].incorrectText);  //Display text for an incorrect answer.
-                $(".real-answer-text").text("The real answer is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
-                $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
-                wrongAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
-                wrongAnswerSound.play();
+    const gameFunctions ={
+        startGame : function() {     //A function that starts the game.
+            gameOn = true;    //This function first changes the game state to "on"
+            $(".whale-diplomacy-title").text("Whale Diplomacy");    //Alter title text.
+            if ($(".start-screen-row").hasClass("buryIt") !== true){    //Then this function hides the start screen if it's not already hidden.
+                $(".start-screen-row").addClass("buryIt");}
+            if ($(".end-screen-row").hasClass("buryIt") !== true){  //Then this function hides the end screen if it's not already hidden.
+                $(".end-screen-row").addClass("buryIt");}
+            if ($(".noInteractionWin").hasClass("buryIt") !== true){  //Then this function hides the ending scenarios, depending on if the game has been replayed.
+                $(".noInteractionWin").addClass("buryIt");}
+            if ($(".totalFail").hasClass("buryIt") !== true){
+                $(".totalFail").addClass("buryIt");}
+            if ($(".minorFail").hasClass("buryIt") !== true){ 
+                $(".minorFail").addClass("buryIt");}
+            if ($(".minorSuccess").hasClass("buryIt") !== true){
+                $(".minorSuccess").addClass("buryIt");}
+            if ($(".totalSuccess").hasClass("buryIt") !== true){
+                $(".totalSuccess").addClass("buryIt");}
+            $(".QA-screen-row").removeClass("buryIt");    //Then this function displays the QA screen
+            gameFunctions.nextQuestion();    //then this function calls the question to be displayed.
+        },
+        nextQuestion : function() { //A function that grabs the information from the current question object and displays it.
+            if ($(".question-screen-row").hasClass("buryIt")){    //If the question screen elements are hidden, reveal them.
+                $(".question-screen-row").removeClass("buryIt");
+                $(".answers-row").removeClass("buryIt");
             }
-        }
-        resizeAnswerImage(); //Resize and Move the image based on viewport size.
-        gameFunctions.nextQuestionTime();    //Then it reveals the next question timer and calls the function that starts it counting down.
-    },
-    revealResults : function() {    //A function that reveals the results of the game.
-        gameOn = false;    //First, turn the game off.
-        resultsScreenUp = true;     //Declare that the results screen is up.
-        $(".QA-screen-row").addClass("buryIt");    //Second, hide the QA screen elements.
-        $(".end-screen-row").removeClass("buryIt");    //Reveal the end game screen.
-        //Display the variables that contain the results of the questions and time.
-        $(".timeResults-row").text(totalTime);
-        $(".rightResults-row").text(correctAs);
-        $(".wrongResults-row").text(inCorrectAs);
-        $(".unansweredNum-row").text(unAnsweredQs);
-        console.log(unAnsweredQs);
-        console.log(correctAs);
-        console.log(inCorrectAs);
-        //Based off of the number of correct answers (or unanswered questions) display an end-game scenario.
-        if (unAnsweredQs === 10 && correctAs === 0 && inCorrectAs === 0) {
-            noInteractionWin.removeClass("buryIt");
-        }
-        if (correctAs === 0 && unAnsweredQs === 0) {
-                totalFail.removeClass("buryIt");
-        }
-        if (correctAs <= 5 && unAnsweredQs === 0) {
-            minorFail.removeClass("buryIt");
-        }
-        if (correctAs > 5 && correctAs < 10 && unAnsweredQs === 0) {
-            minorSuccess.removeClass("buryIt");
-        }
-        if (correctAs === 10){
-            totalSuccess.removeClass("buryIt");
-        }
-    },        
-    questionTime : function() {    //Function that runs the question timer countdown.
-        if (!clockRunning) {    //If statement that setsthe game state to running, set's the second interval, triggering the countdown function.
-            clockRunning = true;
-            intervalId = setInterval(gameFunctions.questionCountDown, 1000);
-        }
-    },
-    questionCountDown : function() {    //Countdown function triggered every second.
-            --qTime //reduce the timer
-            ++totalTime //add to the total time it takes for the player to answer the questions.
-            $(".questionTime").text(qTime); //display the time remaining
-            if (qTime === 0) { //If the timer reaches 0 without being stopped early by a click on an answer button...
-                ++unAnsweredQs //Increase the Unanswer Question Count.
-                isUnanswered = true; //Adds to the state of the answer to the question to unanswered via true/false.
-                gameFunctions.stopQuestionTime(); //On 0 seconds remaining, trigger the stop timer function.
+            questionScreenUp = true;    //Declare that the question screen is up.
+            $(".question-text").text(questions[currentQuestion].question);    //Then display the current question text.
+            let unUsedButtons = [1, 2, 3, 4]; //Establish an array that will represent the numbers of each answer button in the HTML.
+            for (var i = 1; i <= 4; i++) {  //For four times, randomnly select a button and attach a selection text to it.
+                j = unUsedButtons[Math.floor(Math.random() * unUsedButtons.length)];    //Determine which button number we are targeting randomly
+                let jIndex = unUsedButtons.indexOf(j);  //Grab the index of the button number we have grabbed.
+                unUsedButtons.splice(jIndex, 1);    //remove the button number so we don't use it twice.
+                let currentButton = ".aButton"+[j];     //establish a variable that created a string of the the button with our randomly selected number.
+                let targetButton = $(currentButton);    //Create a variable that targets our combined string.
+                let currentSelection = questions[currentQuestion].selection[i];     //Create a variable that targets each answer selection in the questions object.
+                targetButton.text(currentSelection); //add the text of the possible answer to the random button.
             };
-    },      
-    stopQuestionTime : function() {    //Function that stops the timer, and calls the next action.
-        if (clockRunning === true) {
-            clockRunning = false;
-        }
-        clearInterval(intervalId);  //Clear the Interval.
-        qTime = 20;      //Reset the question timer value.
-        gameFunctions.revealAnswer();   //Call the function that reveals the true answer.
-    },
-    nextQuestionTime : function() {    //Function that runs the next question timer countdown.
-        if (!clockRunning) {    //If statement that setsthe game state to running, set's the second interval, triggering the countdown function.
-            clockRunning = true;
-            intervalId = setInterval(gameFunctions.answerCountDown, 1000);
-        }
-    },
-    answerCountDown : function() {    //Countdown function triggered every second.
-            --aTime //reduce the answer timer
-            $(".nextQTime").text(aTime); //display the time remaining
-            if (aTime === 0) { //When the timer reaches the end...
-                if (clockRunning === true) { //...turn off the clock.
-                    clockRunning = false;
+            $(".questionTime").text(qTime);    //display the timer
+            gameFunctions.questionTime(); //Then the timer countdown is called to begin
+        },
+        revealAnswer : function() {    //A function that reveals the real answer.
+            questionScreenUp = false;    //First this function deactivates the question screen on state.
+            answerScreenUp = true;    //Second this function declares the answer is up.
+            $(".question-screen-row").addClass("buryIt");    //Then it hides the Question Screen elements.
+            $(".answers-row").addClass("buryIt");    //Then it hides the answer buttons.
+            if ($(".answer-screen-row").hasClass("buryIt")){    //Then, if the answer row elements are hidden it reveals the Answer Screen Elements.
+                $(".answer-screen-row").removeClass("buryIt");
+            }
+            if ($(".nextQ-timer-row").hasClass("buryIt")){
+                $(".nextQ-timer-row").removeClass("buryIt");
+            }
+            if ($(".answer-image").hasClass("buryIt")){
+                $(".answer-image").removeClass("buryIt");
+            }
+            $(".nextQTime").text(aTime);    //display the timer
+            $("answer-image").removeClass("buryIt");    //Reveal the answer image area.
+            let cImage = questions[currentQuestion].correctImg
+            let icImage = questions[currentQuestion].incorrectImg
+            //Then it determines if the answer was correct or incorrect by checking the currentAnswer state.
+            if(isUnanswered === true) { //If it was unanswered...
+                $(".incorrectORcorrect-text").text(questions[currentQuestion].unansweredText); //Display text for an unanswered question.
+                $(".real-answer-text").text("The answer you DIDN'T GUESS is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
+                $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
+                missingAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
+                missingAnswerSound.play();
+            } else{
+                if (currentAnswer === true) { //If it's correct...
+                    $(".incorrectORcorrect-text").text(questions[currentQuestion].correctText); //Display text for a correct answer.
+                    $(".real-answer-text").text("The answer was:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
+                    $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].correctImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + cImage + "'>"); //Add an image tag with image classes, and the image source
+                    rightAnswerSound = new sound("assets/sounds/correctAnswer.wav");
+                    rightAnswerSound.play();
+                } else{ //If it's wrong
+                    $(".incorrectORcorrect-text").text(questions[currentQuestion].incorrectText);  //Display text for an incorrect answer.
+                    $(".real-answer-text").text("The real answer is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
+                    $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
+                    wrongAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
+                    wrongAnswerSound.play();
+                }
+            }
+            resizeAnswerImage(); //Resize and Move the image based on viewport size.
+            gameFunctions.nextQuestionTime();    //Then it reveals the next question timer and calls the function that starts it counting down.
+        },
+        revealResults : function() {    //A function that reveals the results of the game.
+            gameOn = false;    //First, turn the game off.
+            resultsScreenUp = true;     //Declare that the results screen is up.
+            $(".QA-screen-row").addClass("buryIt");    //Second, hide the QA screen elements.
+            $(".end-screen-row").removeClass("buryIt");    //Reveal the end game screen.
+            //Display the variables that contain the results of the questions and time.
+            $(".timeResults-row").text(totalTime);
+            $(".rightResults-row").text(correctAs);
+            $(".wrongResults-row").text(inCorrectAs);
+            $(".unansweredNum-row").text(unAnsweredQs);
+            console.log(unAnsweredQs);
+            console.log(correctAs);
+            console.log(inCorrectAs);
+            //Based off of the number of correct answers (or unanswered questions) display an end-game scenario.
+            if (unAnsweredQs === 10 && correctAs === 0 && inCorrectAs === 0) {
+                noInteractionWin.removeClass("buryIt");
+            }
+            if (correctAs === 0 && unAnsweredQs === 0) {
+                    totalFail.removeClass("buryIt");
+            }
+            if (correctAs <= 5 && unAnsweredQs === 0) {
+                minorFail.removeClass("buryIt");
+            }
+            if (correctAs > 5 && correctAs < 10 && unAnsweredQs === 0) {
+                minorSuccess.removeClass("buryIt");
+            }
+            if (correctAs === 10){
+                totalSuccess.removeClass("buryIt");
+            }
+        },        
+        questionTime : function() {    //Function that runs the question timer countdown.
+            if (!clockRunning) {    //If statement that setsthe game state to running, set's the second interval, triggering the countdown function.
+                clockRunning = true;
+                intervalId = setInterval(gameFunctions.questionCountDown, 1000);
+            }
+        },
+        questionCountDown : function() {    //Countdown function triggered every second.
+                --qTime //reduce the timer
+                ++totalTime //add to the total time it takes for the player to answer the questions.
+                $(".questionTime").text(qTime); //display the time remaining
+                if (qTime === 0) { //If the timer reaches 0 without being stopped early by a click on an answer button...
+                    ++unAnsweredQs //Increase the Unanswer Question Count.
+                    isUnanswered = true; //Adds to the state of the answer to the question to unanswered via true/false.
+                    gameFunctions.stopQuestionTime(); //On 0 seconds remaining, trigger the stop timer function.
                 };
-                gameFunctions.stopAnswerTime(); //Trigger the stop answer timer function.
-                if (currentQuestion === 10) {    //If we are on the final question..
-                    gameFunctions.revealResults();//  ...trigger the end-game screen to reveal the results of the quiz.
-                } else {    //If it's not the final question...
-                    ++currentQuestion;      //Increment the current question number
-                    gameFunctions.nextQuestion(); //Call the function that triggers the next question
+        },      
+        stopQuestionTime : function() {    //Function that stops the timer, and calls the next action.
+            if (clockRunning === true) {
+                clockRunning = false;
+            }
+            clearInterval(intervalId);  //Clear the Interval.
+            qTime = 20;      //Reset the question timer value.
+            gameFunctions.revealAnswer();   //Call the function that reveals the true answer.
+        },
+        nextQuestionTime : function() {    //Function that runs the next question timer countdown.
+            if (!clockRunning) {    //If statement that setsthe game state to running, set's the second interval, triggering the countdown function.
+                clockRunning = true;
+                intervalId = setInterval(gameFunctions.answerCountDown, 1000);
+            }
+        },
+        answerCountDown : function() {    //Countdown function triggered every second.
+                --aTime //reduce the answer timer
+                $(".nextQTime").text(aTime); //display the time remaining
+                if (aTime === 0) { //When the timer reaches the end...
+                    if (clockRunning === true) { //...turn off the clock.
+                        clockRunning = false;
+                    };
+                    gameFunctions.stopAnswerTime(); //Trigger the stop answer timer function.
+                    if (currentQuestion === 10) {    //If we are on the final question..
+                        gameFunctions.revealResults();//  ...trigger the end-game screen to reveal the results of the quiz.
+                    } else {    //If it's not the final question...
+                        ++currentQuestion;      //Increment the current question number
+                        gameFunctions.nextQuestion(); //Call the function that triggers the next question
+                    };
                 };
-            };
-    },      
-    stopAnswerTime : function() {    //Function that stops the timer, and hides the answer elements.
-        if (clockRunning === true) {     //Turn the clock off.
-            clockRunning = false;
-        }
-        clearInterval(intervalId);  //Clear the Interval.
-        aTime = 10;     //Reset the answer screen timer.
-        //Remove the Answer Screen Elements
-        $(".currentImg").remove(); //Clear the specific image that was added to the answer screen.
-        $(".answer-screen-row").addClass("buryIt");
-        $(".answer-image").addClass("buryIt");
-        $(".nextQ-timer-row").addClass("buryIt");
-        answerScreenUp = false;     //Turn off the answer screen game states.
-        isUnanswered = false;   //Reset the variable that captures whether the question was unanswered or not.
-    },
-}
+        },      
+        stopAnswerTime : function() {    //Function that stops the timer, and hides the answer elements.
+            if (clockRunning === true) {     //Turn the clock off.
+                clockRunning = false;
+            }
+            clearInterval(intervalId);  //Clear the Interval.
+            aTime = 10;     //Reset the answer screen timer.
+            //Remove the Answer Screen Elements
+            $(".currentImg").remove(); //Clear the specific image that was added to the answer screen.
+            $(".answer-screen-row").addClass("buryIt");
+            $(".answer-image").addClass("buryIt");
+            $(".nextQ-timer-row").addClass("buryIt");
+            answerScreenUp = false;     //Turn off the answer screen game states.
+            isUnanswered = false;   //Reset the variable that captures whether the question was unanswered or not.
+        },
+    }
 
 //Responsiveness Function
-resizeAnswerImage = function(){ //A function to change the placement of the answer image depending on viewport size. 
-    //Note - I had to add and remove column size classes because the Bootstrap breakpoints were breaking at different points from the pixel in their documentation. 
-    //I suspect that their breakpoints are calculate somehow rather than being absolute pixel sizes, and something weird happens in that calculation.
-    ///I tied the events together by adding and removing classes, but I suspect there is a more elegant way to tie the two together.
-    if ($(window).width() >= 992 && $(".answer-image").hasClass("large-screen") !== true) {
-        $(".incorrectORcorrect-text").addClass("col-lg-6").after($(".answer-image")); 
-        $(".answer-image").removeClass("medium-screen").addClass("col-lg-5 large-screen");
-    } else {
-        if ($(window).width() < 992 && $(".answer-image").hasClass("medium-screen") !== true) {
-            $(".nextQ-timer-row").before($(".answer-image"));
-            $(".incorrectORcorrect-text").removeClass("col-lg-6")
-            $(".answer-image").removeClass("col-lg-5 large-screen").addClass("medium-screen");
+    resizeAnswerImage = function(){ //A function to change the placement of the answer image depending on viewport size. 
+        //Note - I had to add and remove column size classes because the Bootstrap breakpoints were breaking at different points from the pixel in their documentation. 
+        //I suspect that their breakpoints are calculate somehow rather than being absolute pixel sizes, and something weird happens in that calculation.
+        ///I tied the events together by adding and removing classes, but I suspect there is a more elegant way to tie the two together.
+        if ($(window).width() >= 992 && $(".answer-image").hasClass("large-screen") !== true) {
+            $(".incorrectORcorrect-text").addClass("col-lg-6").after($(".answer-image")); 
+            $(".answer-image").removeClass("medium-screen").addClass("col-lg-5 large-screen");
+        } else {
+            if ($(window).width() < 992 && $(".answer-image").hasClass("medium-screen") !== true) {
+                $(".nextQ-timer-row").before($(".answer-image"));
+                $(".incorrectORcorrect-text").removeClass("col-lg-6")
+                $(".answer-image").removeClass("col-lg-5 large-screen").addClass("medium-screen");
+            }
         }
     }
-}
 
 //Constructors and Prototypes
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }
-} 
-
-//My JS Ends beyond this point.
+    function sound(src) {
+        this.sound = document.createElement("audio");
+        this.sound.src = src;
+        this.sound.setAttribute("preload", "auto");
+        this.sound.setAttribute("controls", "none");
+        this.sound.style.display = "none";
+        document.body.appendChild(this.sound);
+        this.play = function(){
+            this.sound.play();
+        }
+        this.stop = function(){
+            this.sound.pause();
+        }
+    } 
 });
