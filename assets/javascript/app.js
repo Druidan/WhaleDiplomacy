@@ -299,20 +299,20 @@ $(document).ready(function(){
             if(isUnanswered === true) { //If it was unanswered...
                 $(".incorrectORcorrect-text").text(questions[currentQuestion].unansweredText); //Display text for an unanswered question.
                 $(".real-answer-text").text("The answer you DIDN'T GUESS is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
-                $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
+                $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/WhaleDiplomacy/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
                 missingAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
                 missingAnswerSound.play();
             } else{
                 if (currentAnswer === true) { //If it's correct...
                     $(".incorrectORcorrect-text").text(questions[currentQuestion].correctText); //Display text for a correct answer.
                     $(".real-answer-text").text("The answer was:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
-                    $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].correctImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + cImage + "'>"); //Add an image tag with image classes, and the image source
+                    $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].correctImgClass + "' src='https://druidan.github.io/WhaleDiplomacy/assets/images/" + cImage + "'>"); //Add an image tag with image classes, and the image source
                     rightAnswerSound = new sound("assets/sounds/correctAnswer.wav");
                     rightAnswerSound.play();
                 } else{ //If it's wrong
                     $(".incorrectORcorrect-text").text(questions[currentQuestion].incorrectText);  //Display text for an incorrect answer.
                     $(".real-answer-text").text("The real answer is:  '" + questions[currentQuestion].answer + "'"); //Displays the correct answer.
-                    $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/TriviaGame/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
+                    $(".answer-image").append("<img class='currentImg " + questions[currentQuestion].incorrectImgClass + "' src='https://druidan.github.io/WhaleDiplomacy/assets/images/" + icImage + "'>"); //Add an image tag with image classes, and the image source
                     wrongAnswerSound = new sound("assets/sounds/wrongAnswer.wav");
                     wrongAnswerSound.play();
                 }
