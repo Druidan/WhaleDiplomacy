@@ -20,8 +20,8 @@ This game will be deployed at the following page via GitHub Pages - [Whale Wars]
 * The app must have clear and appropriate CSS.
 
 ## Dependencies
-[jQuery](https://jquery.com/)
-[Bootstrap](https://getbootstrap.com/)
+* [jQuery](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
 
 ## Active Bugs and Issues
 _There are currently no bugs that I am aware of._
