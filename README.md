@@ -5,6 +5,7 @@ The Whale Wars are upon us, and only your trivia skills give us any hope of aver
 Whale Wars is a silly timed trivia game that, aside from being a fun way to pass some free time, is also meant to be a way to display my knowledge and use of jQuery, and using window object methods like setInterval.
 
 ## Deployment 
+_This app is slated for refactoring - see future features_
 This game will be deployed at the following page via GitHub Pages - [Whale Wars](https://druidan.github.io/WhaleDiplomacy/).  
 
 ## MVP
@@ -27,8 +28,10 @@ This game will be deployed at the following page via GitHub Pages - [Whale Wars]
 _There are currently no bugs that I am aware of._
 
 ## Future Features / Icebox
+* Add Gifs of the project in action to this very README.
 * I plan on a full revision of the code with the following goals:
     * Maintain the use of jQuery to display my skills with it.
+    * Replace Bootstrap with Grid.
     * Modularize the code, seperating it up into discrete files that can be imported into a main file - especially the quiz questions object.
     * Bring in later improvements I made to my code, such as the class version of the sound object.
     * Make the code more efficient in terms of space and steps required to complete tasks.
